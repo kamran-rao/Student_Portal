@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Student_Admission.Data;
 using Student_Admission.Models;
 using System.Diagnostics;
 
@@ -7,15 +8,17 @@ namespace Student_Admission.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        private readonly ApplicationDbContext _db;
+        public HomeController(ILogger<HomeController> logger, ApplicationDbContext db)
         {
             _logger = logger;
+            _db = db;
         }
 
         public IActionResult Index()
         {
-            return View();
+            List<AdmissionForm> objAdmissionForm= _db.AdmissionForms.ToList();
+            return View(objAdmissionForm);
         }
 
         public IActionResult Privacy()

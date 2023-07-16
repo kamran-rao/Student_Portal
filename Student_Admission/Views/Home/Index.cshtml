@@ -1,4 +1,4 @@
-﻿
+﻿@model List<AdmissionForm>
 
 
 
@@ -55,14 +55,54 @@
                 <div class="col-4">
                     <input class="form-control shadow" type="date" />
                 </div>
-                <div class="col-4">
-                    
+                <div class="col-2">
+                    <button id="SubmitForm" type="submit" class="btn btn-outline-success form-control">Submit</button>
                 </div>
                 <div class="col-2">
-                    <button id="SubmitForm" type="submit" class="btn btn-outline-success">Submit</button>
-                    <button id="CancelForm" type="submit" class="btn btn-outline-warning">Cancel</button>
+                    
+                    <button id="CancelForm" type="submit" class="btn btn-outline-warning form-control">Cancel</button>
                 </div>
             </div>
         </form>
+        <table class="table table-bordered table-striped my-5">
+            <thead>
+                <tr>
+                    <th>Serial No</th>
+                    <th> Student Name</th>
+                    <th> Father Name</th>
+                    <th> Class</th>
+                    <th>Section</th>
+                    <th>Admission Date</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var obj in Model)
+                {
+                    <tr>
+                        <td>@obj.SNo</td>
+                        <td> @obj.SName</td>
+                        <td>@obj.FName</td>
+                        <td>@obj.Class</td>
+                        <td>@obj.Section</td>
+                        <td>@obj.admissionDate</td>
+                        <td> 
+
+                            <button type="submit" id="btnDelete" class="btn btn-danger " >
+                                <span class="spinner-grow spinner-grow-sm"></span>
+                                Delete
+                            </button>
+                            <button type="submit" id="btnEdit" class="btn btn-primary " >
+                                <span class="spinner-grow spinner-grow-sm"></span>
+                                Edit
+                            </button>
+
+                        </td>
+                    </tr>
+                    
+                }
+              
+            </tbody>
+        </table>
     </div>
 </div>
