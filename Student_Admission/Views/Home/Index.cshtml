@@ -1,16 +1,68 @@
 ﻿
+
+
+
 <div class="card shadow border-0 my-4">
-    <div class="card-header bg-secondary bg-gradient ml-0 py-3">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2 class="text-white py-2">Admission Form for Student</h2>
-            </div>
-        </div>
+    <div class="py-3 card-header bg-secondary bg-gradient col-12">
+        <h2 class="text-white text-center">Student Portal- Admission Form</h2>
     </div>
-</div>
-
-<div class="row">
-    <div class="col-12 text-center">
-
+    <div class="card-body">
+        <form method="post">
+         <div class="row">
+         <div class= "col-2">
+             <label>Student Name</label>
+         </div>
+         <div class="col-4">
+             <input class="form-control shadow" />
+         </div>
+            <div class="col-2">
+                <label>Father Name</label>
+            </div>
+            <div class="col-4">
+                <input class="form-control shadow-lg" />
+            </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-2">
+                    <label>Class</label>
+                </div>
+                <div class="col-4">
+                    <select class="form-select shadow text-center">
+                        <option class="text-center" disabled selected>--Select Class--</option>
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <label>Section</label>
+                </div>
+                <div class="col-4">
+                    <select class="form-select shadow text-center">
+                        <option class="text-center" disabled selected>--Select Section--</option>
+                        <option>Section-A</option>
+                        <option>Section-B</option>
+                        <option>Section-C</option>
+                        
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <label>Admission Date</label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control shadow" type="date" />
+                </div>
+                <div class="col-4">
+                    
+                </div>
+                <div class="col-2">
+                    <button id="SubmitForm" type="submit" class="btn btn-outline-success">Submit</button>
+                    <button id="CancelForm" type="submit" class="btn btn-outline-warning">Cancel</button>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
