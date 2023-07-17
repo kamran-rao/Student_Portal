@@ -5,7 +5,7 @@ namespace Student_Admission.Data.ViewModel
 {
     public class VMStudent
     {
-        public AdmissionForm AdmissionForrm { get; set; }
+        public AdmissionForm AdmissionForm { get; set; }
         [ValidateNever]
 
         

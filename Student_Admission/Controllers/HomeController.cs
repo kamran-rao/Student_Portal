@@ -26,6 +26,18 @@ namespace Student_Admission.Controllers
          
         }
 
+        //public IActionResult AddRecord()
+        //{
+        //    return View();
+        //}
+        [HttpPost]
+        public IActionResult AddRecord(VMStudent obj)
+        {
+            _db.AdmissionForms.Add(obj.AdmissionForm);
+            _db.SaveChanges();
+
+            return RedirectToAction("Index");
+        }
         public IActionResult Privacy()
         {
             return View();

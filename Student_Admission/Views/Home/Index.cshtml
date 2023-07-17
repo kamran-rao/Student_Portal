@@ -9,26 +9,29 @@
     </div>
     <div class="card-body">
         <form method="post">
+            <input asp-for="AdmissionForm.SNo" hidden />
          <div class="row">
          <div class= "col-2">
-             <label>Student Name</label>
+             <label asp-for="@Model.AdmissionForm.SName">Student Name</label>
+             
          </div>
          <div class="col-4">
-             <input class="form-control shadow" />
+             <input asp-for="@Model.AdmissionForm.SName" type="text" class="form-control"  />
+                    <span asp-validation-for="AdmissionForm.SName" class="text-danger"></span>
          </div>
             <div class="col-2">
-                <label>Father Name</label>
+                <label asp-for="AdmissionForm.FName">Father Name</label>
             </div>
             <div class="col-4">
-                <input class="form-control shadow-lg" />
+                <input asp-for="@Model.AdmissionForm.FName" type="text" class="form-control shadow-lg" />
             </div>
             </div>
             <div class="row py-3">
                 <div class="col-2">
-                    <label>Class</label>
+                    <label asp-for="AdmissionForm.Class">Class</label>
                 </div>
                 <div class="col-4">
-                    <select class="form-select shadow text-center">
+                    <select asp-for="@Model.AdmissionForm.Class" class="form-select shadow text-center">
                         <option class="text-center" disabled selected>--Select Class--</option>
                         <option>1st Year</option>
                         <option>2nd Year</option>
@@ -37,10 +40,10 @@
                     </select>
                 </div>
                 <div class="col-2">
-                    <label>Section</label>
+                    <label asp-for="AdmissionForm.Section">Section</label>
                 </div>
                 <div class="col-4">
-                    <select class="form-select shadow text-center">
+                    <select asp-for="@Model.AdmissionForm.Section" class="form-select shadow text-center">
                         <option class="text-center" disabled selected>--Select Section--</option>
                         <option>Section-A</option>
                         <option>Section-B</option>
@@ -51,13 +54,14 @@
             </div>
             <div class="row">
                 <div class="col-2">
-                    <label>Admission Date</label>
+                    <label asp-for="AdmissionForm.admissionDate">Admission Date</label>
                 </div>
                 <div class="col-4">
-                    <input class="form-control shadow" type="date" />
+                    <input asp-for="@Model.AdmissionForm.admissionDate" class="form-control shadow" type="date" />
+                    <span asp-validation-for="AdmissionForm.admissionDate"></span>
                 </div>
                 <div class="col-3 ">
-                    <button id="SubmitForm" type="submit" class="btn btn-outline-success form-control ">Submit</button>
+                    <button id="SubmitForm" asp-action="AddRecord" type="submit" class="btn btn-outline-success form-control ">Submit</button>
                 </div>
                 <div class="col-3">
                     
@@ -89,7 +93,7 @@
                         <td>@obj.admissionDate</td>
                         <td> 
 
-                            <button type="submit" id="btnDelete" class="btn btn-danger " >
+                            <button type="submit" id="btnDelete" class="btn btn-danger" >
                                 <span class="spinner-grow spinner-grow-sm"></span>
                                 Delete
                             </button>
