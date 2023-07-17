@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Student_Admission.Data;
+using Student_Admission.Data.ViewModel;
 using Student_Admission.Models;
 using System.Diagnostics;
 
@@ -17,8 +18,12 @@ namespace Student_Admission.Controllers
 
         public IActionResult Index()
         {
-            List<AdmissionForm> objAdmissionForm= _db.AdmissionForms.ToList();
-            return View(objAdmissionForm);
+            var StudentList = new VMStudent
+            {
+                MyList= _db.AdmissionForms.ToList()
+            };
+           return View(StudentList);
+         
         }
 
         public IActionResult Privacy()
