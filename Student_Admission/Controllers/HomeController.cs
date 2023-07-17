@@ -20,16 +20,12 @@ namespace Student_Admission.Controllers
         {
             var StudentList = new VMStudent
             {
-                MyList= _db.AdmissionForms.ToList()
+                MyList = _db.AdmissionForms.ToList()
             };
-           return View(StudentList);
-         
+            return View(StudentList);
+
         }
 
-        //public IActionResult AddRecord()
-        //{
-        //    return View();
-        //}
         [HttpPost]
         public IActionResult AddRecord(VMStudent obj)
         {
@@ -38,9 +34,34 @@ namespace Student_Admission.Controllers
 
             return RedirectToAction("Index");
         }
-        public IActionResult Privacy()
+
+        public IActionResult Delete(int id)
         {
-            return View();
+            var temp= _db.AdmissionForms.FirstOrDefault(u => u.SNo == id);
+            _db.AdmissionForms.Remove(temp);
+            _db.SaveChanges(true);
+            return RedirectToAction("Index");
+        }
+        [HttpPost]
+        public IActionResult Edit(AdmissionForm obj)
+        {
+            _db.AdmissionForms.Update(obj);
+            _db.SaveChanges();  
+            return RedirectToAction("Index");
+        }
+
+        public IActionResult Privacy(int id)
+        {
+            var student = _db.AdmissionForms.FirstOrDefault(u => u.SNo == id);
+            var oldStudent = new AdmissionForm()
+            {
+                SName = student.SName,
+                FName = student.FName,
+                Class = student.Class,
+                Section = student.Section,
+                admissionDate = student.admissionDate
+            };
+            return View(oldStudent);
         }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]

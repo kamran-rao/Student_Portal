@@ -1,6 +1,68 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
-}
-<h1>@ViewData["Title"]</h1>
+﻿@model AdmissionForm
+<div class="card shadow border-0 my-4">
+    <div class="py-3 card-header bg-secondary bg-gradient col-12">
+        <h2 class="text-white text-center">Update- Admission Form</h2>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            <input asp-for="SNo" hidden />
+            <div class="row">
+                <div class="col-2">
+                    <label asp-for="SName">Student Name</label>
 
-<p>Use this page to detail your site's privacy policy.</p>
+                </div>
+                <div class="col-4">
+                    <input asp-for="SName" type="text" class="form-control" />
+                    <span asp-validation-for="SName" class="text-danger"></span>
+                </div>
+                <div class="col-2">
+                    <label asp-for="FName">Father Name</label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="FName" type="text" class="form-control shadow-lg" />
+                    <span asp-validation-for="FName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="row py-3">
+                <div class="col-2">
+                    <label asp-for="Class">Class</label>
+                </div>
+                <div class="col-4">
+                    <select asp-for="Class" class="form-select shadow text-center">
+                        <option class="text-center" disabled selected>--Select Class--</option>
+                        <option>1st Year</option>
+                        <option>2nd Year</option>
+                        <option>3rd Year</option>
+                        <option>4th Year</option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <label asp-for="Section">Section</label>
+                </div>
+                <div class="col-4">
+                    <select asp-for="Section" class="form-select shadow text-center">
+                        <option class="text-center" disabled selected>--Select Section--</option>
+                        <option>Section-A</option>
+                        <option>Section-B</option>
+                        <option>Section-C</option>
+
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2">
+                    <label asp-for="admissionDate">Admission Date</label>
+                </div>
+                <div class="col-4">
+                    <input asp-for="admissionDate" class="form-control shadow" type="date" />
+                    <span asp-validation-for="admissionDate"></span>
+                </div>
+                <div class="col-6 ">
+                    <button id="SubmitForm" asp-action="Edit" type="submit" class="btn btn-outline-primary form-control ">Update</button>
+                </div>
+              
+            </div>
+
+        </form>
+    </div>
+</div>
